@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="nesterenko-n.a" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="WORKING_MODES"/></not>
+        </preConditions>
+        <createTable
+                tableName="WORKING_MODES"
+                remarks="Таблица режимов работы"
+        >
+            <column name="ID" type="BIGSERIAL" autoIncrement="true" remarks="Идентификатор режима работы">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODE" type="VARCHAR(30)" remarks="Режим работы">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="WORKING_MODES" columnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>

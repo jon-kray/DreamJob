@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="2" author="nesterenko-n.a" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="POSTS"/></not>
+        </preConditions>
+        <createTable
+                tableName="POSTS"
+                remarks="Таблица вакансий"
+        >
+            <column name="ID" type="BIGSERIAL" autoIncrement="true" remarks="Идентификатор вакансии">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)" remarks="Должность вакансии">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COMPANY" type="VARCHAR(255)" remarks="Компания">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="TEXT" remarks="Описание вакансии">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" remarks="Дата публикации">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="POSTS" columnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>

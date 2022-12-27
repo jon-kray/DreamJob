@@ -1,0 +1,15 @@
+spring:
+  liquibase:
+    enabled: true
+
+config:
+  database:
+    driver: org.postgresql.Driver
+    username: postgres
+    password: 0000
+    url: jdbc:postgresql://localhost:5432/dreamjob
+
+admin:
+  secret:
+    hash: 3b7f147d-1b46-43ee-ae9c-77f17a9fae435ae02d46-84e0-4a20-9c6d-c5139981ad4a250ad856-1ff3-40a6-89db-d63270682f7b
+    number: 2904809879872841048080184098951981

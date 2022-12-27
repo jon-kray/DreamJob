@@ -1,0 +1,6 @@
+config:
+  database:
+    driver: org.postgresql.Driver
+    username:
+    password:
+    url: jdbc:h2:./testdb://localhost:5432/dreamjob-test

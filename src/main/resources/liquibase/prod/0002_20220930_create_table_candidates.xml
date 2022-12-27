@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="2" author="nesterenko-n.a" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="CANDIDATES"/></not>
+        </preConditions>
+        <createTable
+                tableName="CANDIDATES"
+                remarks="Таблица кандидатов"
+        >
+            <column name="ID" type="BIGSERIAL" autoIncrement="true" remarks="Идентификатор кандидата">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)" remarks="Название резюме">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRICE" type="VARCHAR(255)" remarks="Желаемый доход">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="TEXT" remarks="Описание резюме">
+                <constraints nullable="false"/>
+            </column>
+            <column name="WORKING_MODE_ID" type="BIGINT" remarks="ID режима работы">
+                <constraints nullable="false"  foreignKeyName="FK_WORKING_MODE_CANDIDATES" references="WORKING_MODES(ID)"/>
+            </column>
+            <column name="PHOTO" type="BYTEA" remarks="Фото кандидата">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" remarks="Дата публикации">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="CANDIDATES" columnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>

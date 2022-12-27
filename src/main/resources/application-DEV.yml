@@ -1,0 +1,8 @@
+spring:
+  liquibase:
+    enabled: false
+
+admin:
+  secret:
+    hash: dev-test
+    number: 1111

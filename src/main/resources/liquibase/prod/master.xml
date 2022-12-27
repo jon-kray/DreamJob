@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+http://www.liquibase.org/xml/ns/dbchangelog ">
+
+    <include file="0001_20220930_create_table_workingmodes.xml" relativeToChangelogFile="true" context="PROD"/>
+    <include file="0002_20220930_create_table_candidates.xml" relativeToChangelogFile="true" context="PROD"/>
+    <include file="0003_20220930_create_table_posts.xml" relativeToChangelogFile="true" context="PROD"/>
+    <include file="0004_20220930_init_working_modes.xml" relativeToChangelogFile="true" context="PROD"/>
+    <include file="0005_20221014_create_table_users.xml" relativeToChangelogFile="true" context="PROD"/>
+
+</databaseChangeLog>

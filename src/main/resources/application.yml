@@ -1,0 +1,9 @@
+server:
+  port: 9091
+  servlet:
+    context-path: /dreamjob
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
